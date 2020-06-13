@@ -17,29 +17,27 @@
 % more complex case: 4 authors, 3 institutions, 2 footnotes
 \author[a,2]{J. S\'anchez-Villafrades,}
 \author[b,1]{J. Pe\~na-Rodr\'iguez,\note{Corresponding author.}}
-\author[b,2]{J. Pisco-Guabave}
-\author[b,c,2]{L. A. N\'u\~nez}
-\author[d,e,2]{and H. Asorey}
-
+\author[d,e,2]{H. Asorey}
+\author[b,c,2]{and L. A. N\'u\~nez}
 % The "\note" macro will give a warning: "Ignoring empty anchor..."
 % you can safely ignore it.
 
-\affiliation[a]{Escuela de Ingenier\'ia El\'ectrica, Electr\'onica y de Telecomunicaciones, Universidad Industrial de Santander,\\ Bucaramanga-Colombia}
-\affiliation[b]{Escuela de F\'isica, Universidad Industrial de Santander,\\ Bucaramanga-Colombia}
-\affiliation[c]{Departamento de F\'isica, Universidad de Los Andes, M\'erida-Venezuela.} 
-\affiliation[d]{Departamento F\'isica M\'edica, Centro At\'omico Bariloche, Comisi\'on Nacional de Energ\'{\i}a At\'omica,\\ Bariloche-Argentina}
-\affiliation[e]{Instituto de Tecnolog\'{\i}as en Detecci\'on y Astropart\'{\i}culas (ITEDA),\\ Buenos Aires-Argentina.}
+\affiliation[a]{Escuela de Ingenier\'ia El\'ectrica, Electr\'onica y de Telecomunicaciones, \\ Universidad Industrial de Santander, Bucaramanga-Colombia}
+\affiliation[b]{Escuela de F\'isica, Universidad Industrial de Santander, Bucaramanga-Colombia}
+\affiliation[c]{Departamento F\'isica M\'edica, Centro At\'omico Bariloche, Comisi\'on Nacional de Energ\'{\i}a At\'omica,\\ Bariloche-Argentina}
+\affiliation[d]{Instituto de Tecnolog\'{\i}as en Detecci\'on y Astropart\'{\i}culas, Buenos Aires-Argentina.}
+\affiliation[e]{Departamento de F\'isica, Universidad de Los Andes, M\'erida-Venezuela.} 
 
 % e-mail addresses: only for the for corresponding author
 \emailAdd{jesus.pena@correo.uis.edu.co}
 
 
-\abstract{The Muon Telescope is an experiment for imaging volcanoes in Colombia using muography. Due to the on-field operation conditions of MuTe, a full characterization of the silicon photomultipliers (SiPM) implemented in the particle tracking system depending on temperature variations is mandatory. In this work, we characterize the breakdown voltage, gain and noise at the MuTe SiPMs (Hamamatsu S13360-1350CS) for typical temperatures of the observation place spanning from 0$^{\circ}$C to 40$^{\circ}$C. We demonstrated that the discrimination threshold for the MuTe hodoscope must be above 5 p.e. to avoid contamination due to the SiPM noise caused by dark count, cross-talk and after-pulse. Furthermore, we assess the MuTe counting rate for an 8 p.e. threshold during day-night temperature variations.}
+\abstract{The Muon Telescope is an experiment for imaging volcanoes in Colombia using muography. Due to the on-field operation conditions of the telescope, a full characterization of the silicon photomultipliers (SiPM) implemented in the particle tracking system depending on temperature variations is mandatory. In this work, we characterize the breakdown voltage, gain and noise of the telescope SiPMs for typical temperatures at the observation place spanning $0$ to $40$\,$^{\circ}$C. We demonstrated that the discrimination threshold for the MuTe hodoscope must be above $5$\,pe to avoid contamination due to the SiPM dark count, crosstalk and afterpulsing. We also assess the MuTe counting rate depending on day-night temperature variations.}
 
 % a closed-loop control for the SiPMs bias is recommended to compensate the SiPM breakdown voltage (i.e. the event rate) variability due to the environment temperature.}
 
 
-\keywords{Muography, Silicon Photomultipliers, Breakdown Voltage, Instrumental Noise}
+\keywords{Muography, Silicon Photomultipliers, Dark Count, Crosstalk, Afterpulsing}
 
 \arxivnumber{xxxx.xxxxx} % only if you have one
 
@@ -65,13 +63,15 @@
 
 Muography is a non-invasive technique for imaging anthropic and geologic structures by measuring the crossing muon flux using sensitive hodoscopes. In the last years, several applications have been developed such as detection of hidden materials in containers \cite{Blanpied2015}, archaeological building scanning \cite{Morishima2017, GomezEtal2016}, nuclear plant inspection \cite{Fujii2013}, nuclear waste monitoring, underground cavities \cite{Saracino2017}, the overburden of railway tunnels \cite{ThompsonEtal2019} and vulcanology \cite{Tanaka2005, Tanaka2009, Lesparre2010, Lesparre2011, Lesparre2012, TanakaOlah2019}.
 
-Hodoscopes are mainly built by nuclear emulsions \cite{Morishima2017, NAGAMINE2016}, gaseous chambers \cite{Sehgal2016, Fehr2012, Bouteille2016, Olh2018} and scintillators \cite{Fujii2013, Lesparre2012, Tanaka2009, Nagamine1995, Aguiar2015, Tang2016}. Last ones are widely used due to their easy implementation, low cost and robustness against environmental variables as humidity, temperature and atmospheric pressure \cite{Procureur2018}. The measurement principle of scintillation counters can be explained in twofold: an ionizing particle interacts with the crystal lattice, exciting electrons in the valence band and transferring them to bound states called excitons. Then excitons are de-excited by recombination emitting photons in the near-ultraviolet spectrum. Taking into account the absorption length of the ultraviolet light is quite short, some dopants are added to the basic material in order to obtain a light output in a longer wavelength. The resultant emission wavelength range of scintillator is not fully adjusted to the sensitivity of photosensors (Photomultipliers or SiPMs), therefore it is necessary to add a wavelength shifting fiber. Consequently, the emission spectrum matches the spectral sensitivity of the sensor enhancing the photodetection efficiency \cite{Grupen2008}.
+Hodoscopes are mainly built by nuclear emulsions \cite{Morishima2017, NAGAMINE2016}, gaseous chambers \cite{Sehgal2016, Fehr2012, Bouteille2016, Olh2018} and scintillators \cite{Fujii2013, Lesparre2012, Tanaka2009, Nagamine1995, Aguiar2015, Tang2016}. Last ones are widely used due to their easy implementation, low cost and robustness against environmental variables as humidity, temperature and atmospheric pressure \cite{Procureur2018}. The measurement principle of scintillation counters can be explained in twofold: an ionizing particle interacts with the crystal lattice, exciting electrons in the valence band and transferring them to bound states called excitons. Then excitons are de-excited by recombination emitting photons in the near-ultraviolet spectrum. Taking into account the absorption length of the ultraviolet light is quite short, some dopants are added to the basic material to obtain a light output in a longer wavelength. The resultant emission wavelength range of scintillator is not fully adjusted to the sensitivity of photosensors (Photomultipliers or SiPMs), therefore it is necessary to add a wavelength shifting fiber. Consequently, the emission spectrum matches the spectral sensitivity of the sensor enhancing the photodetection efficiency \cite{Grupen2008}.
 
 SiPMs offer an ideal solution for high granularity hodoscopes to be deployed in volcanic areas because of their small dimensions, robustness, and low power consumption \cite{Ambrosino2014}. SiPMs are composed of a dense array of small photon avalanche diodes (PAD) operating in Geiger mode. When a photon interacts with a SiPM microcell, an avalanche process starts generating a photocurrent flowing through a quenching resistor which causes that the diode bias drops below the breakdown value preventing further Geiger-mode avalanches. The electrical pulses generated by the SiPM are directly related to the number of incident photons. The main drawback of SiPMs is that performance parameters like gain, photodetection efficiency (PDE) and breakdown voltage are very sensitive to temperature variations.
 
 The Muon Telescope (MuTe) is an hybrid detector composed by an hodoscope and a Water Cherenkov Detector (WCD) which will be installed in one of the most dangerous volcanoes in Colombia, the Cerro Machin, located at 2750 m.a.s.l. on the Cordillera Central near to the municipality of Cajamarca \cite{AsoreyEtal2017B}. The MuTe hodoscope consists of two scintillation panels each of 30 $\times$ 30 strips 120 cm length and 4 cm width. Each strip has an 1.8 mm hole for a multi-cladding wavelength shifting (WLS) fiber (Saint-Gobain BCF-92)  with $1.2$ mm diameter, an absorption peak at $410$ nm and an emission peak of $492$ nm \cite{SaintGobain2018}. The WLS fiber is coupled, with a silicon photomultiplier (SiPM, Hamamatsu S13360-1350CS) \cite{Hamamatsu2018}. The SiPM has a photosensitive area of $1.3 \times 1.3 \textrm{ mm}^2$, $667$ pixels, a fill factor of $74\%$, a gain from $10^5$ to $10^6$ and a photon-detection efficiency of $40 \%$ at $450 \textrm{nm}$ \cite{pena2019calibration, PenaRodriguezEtal2018}.
 
-Due to the MuTe operates on-field under variable environmental conditions, characterization of SiPM parameters and its temperature dependence plays a key step in the detector calibration process. Here we evaluate the MuTe SiPMs taking into account their breakdown voltage, gain, dark count, cross-talk and after-pulse in several temperature and over-voltage conditions. In section \ref{sec:exp} we describe the experimental setups and the data acquisition system for the SiPM evaluation. In section \ref{sec:res} we show the results of the breakdown voltage, gain and noise characterization. In section \ref{sec:obs} the temperature conditions at the Cerro Mach\'in volcano and their affectation on the MuTe mechanical structure are shown. In section \ref{sec:temp} flux and temperature measurements of the MuTe tracking system in on-field conditions are shown. As a summary, in section \ref{sec:conc} we close with the main conclusions and remarks of this work.
+Due to the MuTe operates on-field under variable environmental conditions, characterization of SiPM parameters and its temperature dependence plays a key step in the detector calibration process. Here we evaluate the MuTe SiPMs taking into account their breakdown voltage, gain, dark count, crosstalk and afterpulsing in several temperature and over-voltage conditions. 
+
+In section \ref{sec:exp} we describe the experimental setups and the data acquisition system for the SiPM evaluation. In section \ref{sec:res} we show the results of the breakdown voltage, gain and noise characterization. In section \ref{sec:obs} the temperature conditions at the Cerro Mach\'in volcano and their affectation on the MuTe mechanical structure are shown. In section \ref{sec:temp} flux and temperature measurements of the MuTe tracking system in on-field conditions are shown. As a summary, in section \ref{sec:conc} we close with the main conclusions and remarks of this work.
 
 
 \section{Experimental setups and Data Acquisition System}
@@ -79,7 +79,7 @@ Due to the MuTe operates on-field under variable environmental conditions, chara
 
 \subsection{Breakdown voltage setup}
 
-The first experimental setup is used for measuring the SiPM dark current depending on temperature and bias voltage. A sketch of the setup is shown in Figure \ref{fig:set1}. The SiPM is placed on an isolated aluminum holder whose temperature is controlled by two Peltier cells (TEC1-12706 from Hebei I.T) is sensed by means of an LM35. A proportional-integral-derivative (PID) control implemented in a microcontroller Atmega328 generates two pulse-width-modulate (PWM) signals whose duty cycle depends on the calculated error between the sensed temperature and the pre-established set-point. The signals are optically coupled to a full-bridge driver for controlling the direction (cooling or heating) and amplitude (fast or slow) of the current flowing through the Peltier cells.
+The first experimental setup is used for measuring the SiPM dark current depending on temperature and bias voltage. A sketch of the setup is shown in Figure \ref{fig:set1}. The SiPM is placed on an isolated aluminum holder whose temperature is controlled by two Peltier cells (TEC1-12706 from Hebei I.T) and sensed by means of an LM35. A proportional-integral-derivative (PID) control implemented in a microcontroller Atmega328 generates two pulse-width-modulate (PWM) signals whose duty cycle depends on the calculated error between the sensed temperature and the pre-established set-point. The signals are optically coupled to a full-bridge driver for controlling the direction (cooling or heating) and amplitude (fast or slow) of the current flowing through the Peltier cells.
 
 \begin{figure}[htbp]
 \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -87,16 +87,16 @@ The first experimental setup is used for measuring the SiPM dark current dependi
 \caption{\label{fig:set1} Experimental setup for measuring the SiPM dark current in darkness conditions. The SiPM is positioned in the aluminum holder inside the dark box. The holder temperature is controlled via Peltier cells by means a PID controller implemented in the Atmega328.}
 \end{figure}
 
-The SiPM S13360-1350CS is biased with a C11204 power module covering a voltage range from 40 to 60 V. The SiPM dark current is measured by a 2 nA accuracy picometer. Moreover, the SiPM bias voltage and temperature are recorded individually by a 10 bit analog to digital converter with a sampling rate of 1 Hz. All the setup components are placed inside a grounded dark box in order to avoid external light contamination and electromagnetic interference.
+The SiPM S13360-1350CS is biased with a C11204 power module covering a voltage range from 40 to 60 V. The SiPM dark current is measured by a 2 nA accuracy picoammeter. Moreover, the SiPM bias voltage and temperature are recorded individually by a 10 bit analog to digital converter with a sampling rate of 1 Hz. All the setup components are placed inside a grounded dark box to avoid external light contamination and electromagnetic interference.
 
 
 \subsection{Gain and noise setup}
 
-In order to estimate the gain and noise variability of the SiPM depending on the temperature and overvoltage, we need to extract its photoelectron and charge spectrum. To achieve this aim, the SiPM must be stimulated with a pulsed light source with a wavelength matching the SiPM spectral sensitivity range and a pulse width of the order of a few ns \cite{Georgiev2016, Eigen2019}.
+To estimate the gain and noise variability of the SiPM depending on the temperature and overvoltage, we need to extract its photoelectron and charge spectrum. To achieve this aim, the SiPM must be stimulated with a pulsed light source with a wavelength matching the SiPM spectral sensitivity range and a pulse width of the order of a few ns \cite{Georgiev2016, Eigen2019}.
 
 In this case, the SiPM temperature was controlled in the same way that in the breakdown voltage setup. The signals generated by the SiPM were amplified by 94 using a low noise current feedback operational amplifier (OPA691 from Texas Instruments) and digitized by a Red Pitaya ADC channel at a sampling frequency of 125 MSPS and 14 bits resolution.
 
-The LED pulser generates an ultra-short (< 10 ns) 480 nm light pulse with a frequency of 500 Hz. A 50 cm WLS fiber (Saint-Gobain BCF-92) transports the blue light towards the SiPM, at the same time, a square signal triggers the DAQ system. Both, the trigger and the SiPM signals are sent via 50-ohm coaxial cables (RG-58). A vector of 500 samples (4 uS) with a time step of 8 ns contains the information of the pulse shape. A sketch of the setup is shown in Figure \ref{fig:set2}..
+The LED pulser generates an ultra-short (< 10 ns) 480 nm light pulse with a frequency of 500 Hz. A 50 cm WLS fiber (Saint-Gobain BCF-92) transports the blue light towards the SiPM, at the same time, a square signal triggers the DAQ system. Both, the trigger and the SiPM signals are sent via 50-ohm coaxial cables (RG-58). A vector of 500 samples (4 uS) with a time step of 8 ns contains the information of the pulse shape. A sketch of the setup is shown in Figure \ref{fig:set2}.
 
 % In Figure \ref{fig:signal} we see a set of 150 pulses, where B is the signal portion before stimulation and A after stimulation. 
 
@@ -160,11 +160,11 @@ The separation between two adjacent peaks $\Delta Q$ in the charge histogram cor
 G = \frac{\Delta Q}{e}
 \end{equation}
 
-The SiPM gain depends on the bias voltage ($V_{bias} = V_{br} + \Delta$V), the higher the bias voltage the higher the gain. In order to estimate the gain dependence on the overvoltage ($\Delta V$) in the SiPM S13360-1350CS we measured three charge spectra for $\Delta$V = 1.7V, 2.7V, and 3.7V at 25$^{\circ}$C. In Figure \ref{fig:gain} the charge spectra for these cases are shown.
+The SiPM gain depends on the bias voltage ($V_{bias} = V_{br} + \Delta$V), the higher the bias voltage the higher the gain. To estimate the gain dependence on the overvoltage ($\Delta V$) in the SiPM S13360-1350CS we measured three charge spectra for $\Delta$V = 1.7V, 2.7V, and 3.7V at 25$^{\circ}$C. In Figure \ref{fig:gain} the charge spectra for these cases are shown.
 
 \begin{figure}[htbp]
 \centering % \begin{center}/\end{center} takes some additional vertical space
-\includegraphics[width=.49\textwidth]{Figures/GainCharge.eps}
+\includegraphics[width=.49\textwidth]{Figures/GainCharge_enhanced.eps}
 \quad
 \includegraphics[width=.47\textwidth]{Figures/G_OV_1350CS.eps}
 \caption{\label{fig:gain} (Left): Charge spectrum for $\Delta V=$1.7 V (green), 2.7 V (orange), and 3.7 V (red). (Right): Gain variation ratio depending on the overvoltage.}
@@ -174,7 +174,7 @@ The separation between charge peaks grows as the overvoltage increases, indicati
 
 \subsection{Photoelectron spectrum}
 
-SiPMs are composed of an array of APDs, all connected in parallel. The output pulse amplitude from SiPMs is proportional to the number of incident photons. The photoelectron (p.e.) spectrum determines the equivalent value (voltage or current) of a photon interacting with the active area of the SiPM. This value establishes the threshold for measuring dark count, crosstalk and afterpulse noise.
+SiPMs are composed of an array of APDs, all connected in parallel. The output pulse amplitude from SiPMs is proportional to the number of incident photons. The photoelectron (p.e.) spectrum determines the equivalent value (voltage or current) of a photon interacting with the active area of the SiPM. This value establishes the threshold for measuring dark count, crosstalk and afterpulsing noise.
 
 \begin{figure}[htbp]
 \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -190,7 +190,7 @@ A clear amplitude quantization is revealed with a high probability of occurrence
 
 \subsection{Noise}
 
-SiPMs are affected by correlated noise (\textit{crosstalk} and \textit{afterpulses}) and non-correlated noise (dark count rate - DCR) \cite{Baudis2018}. These noise sources impose a lower limit of measurement in SiPM based experiments. We performed a noise analysis of the MuTe SiPMs taking into account its temperature and over-voltage dependency. Additionally, we established the minimum p.e. threshold above which the noise is negligible.
+SiPMs are affected by correlated noise (\textit{crosstalk} and \textit{afterpulsing}) and non-correlated noise (dark count rate - DCR) \cite{Baudis2018}. These noise sources impose a lower limit of measurement in SiPM based experiments. We performed a noise analysis of the MuTe SiPMs taking into account its temperature and over-voltage dependency. Additionally, we established the minimum p.e. threshold above which the noise is negligible.
 
 \subsubsection{Dark count rate}
 The main source of noise in SiPMs is the DCR which appears as a consequence of avalanches processes fired by electrons thermally generated in the silicon crystal. The signals generated by thermal electrons and single-photons are identical. DCR is measured under dark conditions by counting events above a 0.5 p.e. threshold.
@@ -237,7 +237,7 @@ Afterpulsing is generated by trapped electrons in silicon impurities during an a
 % \caption{\label{fig:after} Afterpulse examples for 5 p.e. (red) and 8 p.e. (green) primary events.}
 % \end{figure}
 
-The probability $P_{AP}$ of afterpulses is calculated as follows
+The afterpulsing probability $P_{AP}$ is calculated as follows
 \begin{eqnarray}
     P_{AP} &=& \frac{N_{1pe}^A-N_{1pe}^B}{N_p}\times 100
     \label{AP_eq}
@@ -261,7 +261,7 @@ The crosstalk probability is defined as
 \end{eqnarray}
 where $N_{2p.e.}^B$ is the number of events with an amplitude above 2 p.e before stimulation.
 
-Figure \ref{fig:after_cross} (Right) shows the afterpulsing and crosstalk behavior depending on the SiPM overvoltage. Both parameters increase exponentially with the overvoltage, being the crosstalk always greater than afterpulsing. The afterpulse probability reaches 3$\%$ at 56 V/25$^{\circ}$C while the crosstalk probability rises up 5$\%$.
+Figure \ref{fig:after_cross} (Right) shows the afterpulsing and crosstalk behavior depending on the SiPM overvoltage. Both parameters increase exponentially with the overvoltage, being the crosstalk always greater than afterpulsing. The afterpulsing probability reaches 3$\%$ at 56 V/25$^{\circ}$C while the crosstalk probability rises up 5$\%$.
 
 \begin{figure}[htbp]
 \centering 
@@ -272,9 +272,9 @@ Figure \ref{fig:after_cross} (Right) shows the afterpulsing and crosstalk behavi
 \label{fig:after_cross}
 \end{figure}
 
-The correlated noise dependency on temperature was analyzed by performing afterpulsing and crosstalk measurements from 0$^{\circ}$C to 40$^{\circ}$C at 56 V. The results are displayed on Figure \ref{fig:after_cross} (Left). At 0$^{\circ}$C the afterpulse probability is below 2$\%$ and the crosstalk below 4$\%$. The afterpulsing increases faster than crosstalk with the temperature, rising up almost 5$\%$ at 40$^{\circ}$C while crosstalk reaches 6$\%$ for the same temperature value.
+The correlated noise dependency on temperature was analyzed by performing afterpulsing and crosstalk measurements from 0$^{\circ}$C to 40$^{\circ}$C at 56 V. The results are displayed on Figure \ref{fig:after_cross} (Left). At 0$^{\circ}$C the afterpulsing probability is below 2$\%$ and the crosstalk below 4$\%$. The afterpulsing increases faster than crosstalk with the temperature, rising up almost 5$\%$ at 40$^{\circ}$C while crosstalk reaches 6$\%$ for the same temperature value.
 
-In order to reduce the noise caused by dark count, crosstalk and afterpulse, we concluded that the ideal discrimination threshold for the scintillator hodoscope of MuTe must be above 5 p.e. On another hand, a closed-loop control of the SiPMs bias voltage is needed taking into account breakdown voltage shifting due to temperature variations and as result a modulation of the detection rate.
+In order to reduce the noise caused by dark count, crosstalk and afterpulsing, we concluded that the ideal discrimination threshold for the scintillator hodoscope of MuTe must be above 5 p.e. On another hand, a closed-loop control of the SiPMs bias voltage is needed taking into account breakdown voltage shifting due to temperature variations and as result a modulation of the detection rate.
 
 % \begin{figure}[htbp]
 % \centering 
@@ -343,7 +343,7 @@ The maximum variance of the pulse amplitude is about 2 mV for a $\Delta T \sim 8
 \caption{\label{fig:thre} Photoelectron and pulse amplitude variation of the MuTe-SiPM for typical temperature values at the Cerro-Mach\'in volcano.}
 \end{figure}
 
-The MuTe hodoscope discrimination threshold was set above 5 pe = 67.5 mV in order to take out the noise contributions due to DCR, after pulse and crosstalk and their respective variations due to temperature. Figure \ref{fig:thre} shows the resulting variance around the threshold voltage (Right) and its respective photoelectron equivalent (Left). 
+The MuTe hodoscope discrimination threshold was set above 5 pe = 67.5 mV to take out the noise contributions due to DCR, afterpulsing and crosstalk and their respective variations due to temperature. Figure \ref{fig:thre} shows the resulting variance around the threshold voltage (Right) and its respective photoelectron equivalent (Left). 
 
 To assess the MuTe-SiPMs behavior in on-field conditions, we analyzed 5 days of data from 2019/12/20 to 2019/12/25. In Figure \ref{fig:temp} we show the temperature of the rear ($T_R$) and frontal ($T_F$) panels, as well as the in-coincidence detection rate of them. The MuTe was pointing towards the horizon without elevation, with an angular aperture of 52$^{\circ}$, an inter-panel separation of 2.5 m, and a discrimination threshold of 8 p.e.
 
@@ -358,9 +358,9 @@ The panel temperature oscillates from 20$^{\circ}$C to 30 $^{\circ}$C representi
 \section{Conclusions and Outlook}
 \label{sec:conc}
 
-We evaluated the SiPM S13360-1350CS from Hamamatsu in order to characterize the breakdown voltage, gain and noise depending on the overvoltage and temperature. Temperature testes ranged from 0$^{\circ}$C to 40$^{\circ}$C covering the temperature spectrum of the observation site at Cerro Mach\'in Volcano, Colombia. The SiPM breakdown voltage variation ratio was about 41.7mV/$^{\circ}$C indicating a pulse amplitude shift of 14.8$\%$ which is not representative for jumping between photoelectron levels. We also estimated a gain increase ratio of about 3.07$\times 10^5$/V for overvoltage changes on the SiPM. 
+We evaluated the SiPM S13360-1350CS from Hamamatsu to characterize the breakdown voltage, gain and noise depending on the overvoltage and temperature. Temperature testes ranged from 0$^{\circ}$C to 40$^{\circ}$C covering the temperature spectrum of the observation site at Cerro Mach\'in Volcano, Colombia. The SiPM breakdown voltage variation ratio was about 41.7mV/$^{\circ}$C indicating a pulse amplitude shift of 14.8$\%$ which is not representative for jumping between photoelectron levels. We also estimated a gain increase ratio of about 3.07$\times 10^5$/V for overvoltage changes on the SiPM. 
 
-In the noise characterization we found that the dark count rate decreases by several magnitude orders (< 100 Hz) at a threshold above 3 p.e. On the other hand, the DCR increases with a ratio of 11.16 kHz/V as a function of the SiPM overvoltage. This proposes a trade-off challenge because temperature increase generates a breakdown voltage increase but also a rising of the DCR. In the SiPM S13360-1350CS, the afterpulse and crosstalk probabilities showed a non-linear growth with the temperature reaching up to 3$\%$ and 5$\%$ at an overvoltage of 3.7 V respectively. We recommend a discrimination threshold above 5 p.e in order to reduce drastically the correlated and non-correlated noise from MuTe SiPMs. 
+In the noise characterization we found that the dark count rate decreases by several magnitude orders (< 100 Hz) at a threshold above 3 p.e. On the other hand, the DCR increases with a ratio of 11.16 kHz/V as a function of the SiPM overvoltage. This proposes a trade-off challenge because temperature increase generates a breakdown voltage increase but also a rising of the DCR. In the SiPM S13360-1350CS, the afterpulsing and crosstalk probabilities showed a non-linear growth with the temperature reaching up to 3$\%$ and 5$\%$ at an overvoltage of 3.7 V respectively. We recommend a discrimination threshold above 5 p.e to reduce drastically the correlated and non-correlated noise from MuTe SiPMs. 
 
 In the on-field test, the hodoscope rate was modulated by the environmental temperature reaching a maximum deviation of 11.2$\%$ respect to the average. The modulation was inversely correlated to the temperature indicating that its origin is because of the cosmic ray flux variability and it is not by the SiPM behavior where the rate will be directly correlated.
 
